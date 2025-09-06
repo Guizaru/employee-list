@@ -19,7 +19,7 @@ public class Main {
 
         for (int i = 0; i < numberOfEmployee; i++) {
             System.out.printf("Employee #%d:%n", i + 1);
-            
+
             String id;
             boolean idExists;
             do {
@@ -33,27 +33,27 @@ public class Main {
                         break;
                     }
                 }
-            System.out.print("Name: ");
-            String name = sc.nextLine();
+                System.out.print("Name: ");
+                String name = sc.nextLine();
 
-            System.out.print("Salary: ");
-            double salary = sc.nextDouble();
-            sc.nextLine();
+                System.out.print("Salary: ");
+                double salary = sc.nextDouble();
+                sc.nextLine();
 
-            Employee employee = new Employee(id, name, salary);
-            employeeList.add(employee);
+                Employee employee = new Employee(id, name, salary);
+                employeeList.add(employee);
+            } while (idExists);
         }
 
         Employee employee = findEmployeeById(sc, employeeList);
 
-        if (employee == null){
+        if (employee == null) {
             System.out.println("List of employees: ");
             for (Employee employees : employeeList) {
                 System.out.println(employees);
             }
             System.exit(0);
-        }
-        else {
+        } else {
             System.out.print("Enter the percentage: ");
             double percentage = sc.nextDouble();
             employee.raiseSalary(percentage);
@@ -80,5 +80,4 @@ public class Main {
         System.out.println();
         return null;
     }
-
 }
