@@ -19,10 +19,20 @@ public class Main {
 
         for (int i = 0; i < numberOfEmployee; i++) {
             System.out.printf("Employee #%d:%n", i + 1);
-
-            System.out.print("Id: ");
-            String id = sc.nextLine();
-
+            
+            String id;
+            boolean idExists;
+            do {
+                idExists = false;
+                System.out.print("Id: ");
+                id = sc.nextLine();
+                for (Employee emp : employeeList) {
+                    if (emp.getId().equals(id)) {
+                        System.out.println("This ID already exists. Please enter a unique ID.");
+                        idExists = true;
+                        break;
+                    }
+                }
             System.out.print("Name: ");
             String name = sc.nextLine();
 
